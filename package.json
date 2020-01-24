@@ -1,0 +1,42 @@
+{
+  "name": "geekbrains_telegram_bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "gitlab.admin.geekbrains.ru:GeekBrainsTeam/telegram-bot.git",
+  "author": "Anton Volodin",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV='development' nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node -r dotenv/config' src/server.ts",
+    "build": "rimraf ./dist && npx tsc",
+    "start-server": "yarn build && node ./dist/server.js",
+    "start-bot": "node ./dist/bot.js",
+    "start-queue": "node ./dist/queue.js",
+    "start-server-dev": "ts-node -r dotenv/config ./src/server.ts",
+    "start-bot-dev": "ts-node -r dotenv/config ./src/bot.ts",
+    "start-queue-dev": "ts-node -r dotenv/config ./src/queue.ts"
+  },
+  "dependencies": {
+    "@sentry/node": "^5.11.0",
+    "await-semaphore": "^0.1.3",
+    "axios": "^0.19.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "node-nats-streaming": "^0.2.6",
+    "node-telegram-bot-api": "^0.30.0",
+    "socks5-https-client": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^4.17.2",
+    "@types/node": "^13.1.6",
+    "@types/node-telegram-bot-api": "^0.40.1",
+    "@typescript-eslint/eslint-plugin": "^2.15.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.4"
+  }
+}
